@@ -13,94 +13,193 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.8;
+            line-height: 1.7;
             color: #2d3748;
-            background: #f7fafc;
-            padding: 20px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #3b82f6 50%, #60a5fa 75%, #93c5fd 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 60px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            padding: 70px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%);
         }
         
         .header {
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 35px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
         }
         
         h1 {
-            font-size: 2.5em;
-            color: #1a202c;
-            margin-bottom: 10px;
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
         }
         
         .subtitle {
-            color: #718096;
-            font-size: 1.1em;
+            color: #64748b;
+            font-size: 1.15em;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
         
         h2 {
-            font-size: 1.8em;
-            color: #2d3748;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 4px solid #667eea;
+            font-size: 1.95em;
+            color: #1e293b;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 5px solid;
+            border-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%) 1;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
         
         h3 {
-            font-size: 1.4em;
-            color: #2d3748;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #334155;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
         
         p {
-            margin-bottom: 20px;
-            color: #4a5568;
+            margin-bottom: 22px;
+            color: #475569;
+            font-size: 1.05em;
+            line-height: 1.75;
+        }
+        
+        strong {
+            color: #1e293b;
+            font-weight: 600;
         }
         
         .info-box {
-            background: #ebf4ff;
-            border-left: 4px solid #4299e1;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 5px solid #3b82f6;
+            padding: 28px 32px;
+            margin: 35px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .info-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15);
         }
         
         .info-box strong {
-            color: #2c5282;
+            color: #1e40af;
+            font-size: 1.1em;
         }
         
         .warning-box {
-            background: #fffaf0;
-            border-left: 4px solid #ed8936;
-            padding: 20px;
-            margin: 30px 0;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 28px 32px;
+            margin: 35px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .warning-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.15);
         }
         
         .warning-box strong {
-            color: #c05621;
+            color: #92400e;
+            font-size: 1.1em;
+        }
+        
+        .bullet-list {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            list-style: none;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 14px;
+            color: #475569;
+            font-size: 1.05em;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .bullet-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .bullet-list li::marker {
+            color: #3b82f6;
         }
         
         .step-list {
             counter-reset: step-counter;
             list-style: none;
             padding-left: 0;
+            margin: 30px 0;
         }
         
         .step-list li {
             counter-increment: step-counter;
-            margin-bottom: 25px;
-            padding-left: 60px;
+            margin-bottom: 30px;
+            padding-left: 70px;
             position: relative;
+            color: #475569;
+            font-size: 1.05em;
+            line-height: 1.75;
         }
         
         .step-list li::before {
@@ -108,70 +207,137 @@
             position: absolute;
             left: 0;
             top: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.3em;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
         }
         
-        .bullet-list {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .bullet-list li {
-            margin-bottom: 10px;
-            color: #4a5568;
+        .step-list li strong {
+            color: #1e293b;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
         }
         
         .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 50px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
         }
         
         .back-link:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+        }
+        
+        .back-link:active {
+            transform: translateY(-1px);
         }
         
         .footer {
-            margin-top: 60px;
-            padding-top: 30px;
+            margin-top: 70px;
+            padding-top: 35px;
             border-top: 2px solid #e2e8f0;
             text-align: center;
-            color: #718096;
+            color: #94a3b8;
+            font-size: 0.95em;
         }
         
         code {
-            background: #edf2f7;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            color: #2d3748;
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            color: #1e293b;
+            font-size: 0.9em;
+            border: 1px solid #e2e8f0;
         }
         
-        @media (max-width: 600px) {
+        a[href^="mailto:"] {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        a[href^="mailto:"]:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .container {
+                padding: 40px 30px;
+                border-radius: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+                padding-left: 15px;
+                margin-top: 40px;
+            }
+            
+            p {
+                font-size: 1em;
+            }
+            
+            .info-box,
+            .warning-box {
+                padding: 20px 24px;
+            }
+            
+            .step-list li {
+                padding-left: 60px;
+            }
+            
+            .step-list li::before {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
             .container {
                 padding: 30px 20px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 1.9em;
             }
             
             h2 {
                 font-size: 1.4em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
             }
             
             .step-list li {
@@ -179,9 +345,9 @@
             }
             
             .step-list li::before {
-                width: 35px;
-                height: 35px;
-                font-size: 1em;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1em;
             }
         }
     </style>
@@ -190,65 +356,112 @@
     <div class="container">
         <div class="header">
             <h1>Data Deletion Request</h1>
-            <p class="subtitle">Request the deletion of your personal data from AfterVeil</p>
+            <p class="subtitle">Request deletion of your personal data from AfterVeil</p>
         </div>
         
-        <p>At <strong>PiazSoftware</strong>, we respect your right to control your personal data. If you wish to delete your account and associated data from <strong>AfterVeil</strong>, you can do so either through the app or by contacting us directly.</p>
+        <p><strong>PIAZ Software ApS</strong> respects your right to request deletion of your personal data. Users of <strong>AfterVeil</strong> may request deletion of their account and associated personal data at any time.</p>
+        
+        <p>You may submit a deletion request directly within the app or by contacting us by email, as described below.</p>
+        
+        <h2>Important Information About Data Deletion</h2>
         
         <div class="warning-box">
-            <strong>⚠️ Important:</strong> Deleting your data is permanent and cannot be undone. All your game progress, achievements, and account information will be permanently removed.
+            <strong>⚠️ Important:</strong>
+            <ul class="bullet-list" style="margin-top: 10px;">
+                <li>Data deletion is permanent and irreversible.</li>
+                <li>Once your deletion request is completed, your account and personal data cannot be restored.</li>
+                <li>Deleting your data will result in the permanent loss of game progress, case data, and saved content.</li>
+            </ul>
         </div>
         
-        <h2>Delete Data Within the App</h2>
+        <h2>Request Data Deletion Within the App (Primary Method)</h2>
         
-        <p>You can request data deletion directly from the AfterVeil app by following these steps:</p>
+        <p>AfterVeil provides an in-app data deletion mechanism, in accordance with Apple App Store requirements.</p>
         
+        <p>To request deletion within the app:</p>
         <ol class="step-list">
             <li>
-                <strong>Open AfterVeil</strong><br>
+                <strong>Open AfterVeil on your device</strong><br>
                 Launch the game on your device
             </li>
             <li>
-                <strong>Navigate to Settings</strong><br>
-                [Temporary placeholder - Replace with: Tap on the menu icon in the top-right corner and select "Settings"]
+                <strong>Access Game Settings</strong><br>
+                From the Story Selection screen (main screen with available cases), tap the "Game Settings" button at the bottom of the screen
             </li>
             <li>
-                <strong>Access Account Settings</strong><br>
-                [Temporary placeholder - Replace with: Scroll down and tap "Account" or "Privacy Settings"]
+                <strong>Navigate to Data & Privacy</strong><br>
+                In Game Settings, scroll down to the "Data & Privacy" section
             </li>
             <li>
-                <strong>Find Data Deletion Option</strong><br>
-                [Temporary placeholder - Replace with: Look for "Delete My Data" or "Delete Account" button]
+                <strong>Initiate Deletion</strong><br>
+                Tap "Delete All Data" (red button with trash icon)
             </li>
             <li>
-                <strong>Confirm Your Request</strong><br>
-                [Temporary placeholder - Replace with: Read the warning message and confirm by entering your password or verification code]
+                <strong>Review the Confirmation</strong><br>
+                Review the confirmation dialog, which explains that this will permanently delete your User ID, Installation ID, all game progress, purchased cases, settings, downloaded content, and data from both your device and our servers.
             </li>
             <li>
-                <strong>Wait for Confirmation</strong><br>
-                You will receive a confirmation [via email/in-app notification] that your deletion request has been received
+                <strong>Confirm Deletion</strong><br>
+                Tap "Delete Everything" to confirm, or "Cancel" to abort
+            </li>
+            <li>
+                <strong>Wait for Completion</strong><br>
+                Wait for the deletion process to complete. You will see a confirmation message showing what was deleted. The app will automatically close after successful deletion.
             </li>
         </ol>
         
         <div class="info-box">
-            <strong>📱 In-App Screenshots:</strong> [Temporary placeholder - Consider adding screenshots of the in-app deletion process here to make it easier for users to follow]
+            <strong>📱 Note:</strong> If deletion fails, you will see an error message with support contact information. You can copy the support details and contact us at <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a> for assistance.
         </div>
         
-        <h2>What Data Will Be Deleted?</h2>
+        <h2>What Data Will Be Deleted</h2>
         
-        <p>When you request data deletion, the following information will be permanently removed:</p>
+        <p>When your data deletion request is completed, we will delete the following data from our systems:</p>
         <ul class="bullet-list">
-            <li>Account profile and settings</li>
-            <li>Game progress and save data</li>
-            <li>Achievement and leaderboard entries</li>
-            <li>In-game purchases history (refunds may not be available)</li>
-            <li>Any other personal data associated with your account</li>
+            <li>Your User ID and Installation ID</li>
+            <li>All game progress and saves</li>
+            <li>Purchased cases and items</li>
+            <li>Settings and preferences</li>
+            <li>All downloaded content</li>
+            <li>Data from both your device and our servers</li>
+            <li>Account profile and authentication data</li>
+            <li>In-game chat messages, notes, and user-generated content</li>
+            <li>Feedback, reports, and support communications</li>
+            <li>Any other personal data associated with your AfterVeil account</li>
         </ul>
         
-        <h2>Need Help?</h2>
+        <h2>Data We Cannot Delete</h2>
         
-        <p>If you have questions about data deletion or encounter any issues, please contact our support team:</p>
-        <p>piazsoftware@gmail.com</p>
+        <div class="info-box">
+            <p>Certain information may be retained by third parties in accordance with their own legal obligations:</p>
+            <ul class="bullet-list" style="margin-top: 10px;">
+                <li>Records of in-app purchases are managed by Apple App Store or Google Play</li>
+                <li>We do not control or delete data stored by app store providers</li>
+                <li>Refunds, billing history, and transaction records are subject to the app store's policies</li>
+            </ul>
+        </div>
+        
+        <h2>Request Data Deletion by Email (Alternative Method)</h2>
+        
+        <p>If you are unable to access the app, you may request deletion by contacting us directly:</p>
+        <p><strong>📧 <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a></strong></p>
+        
+        <p>Please include:</p>
+        <ul class="bullet-list">
+            <li>The email address associated with your AfterVeil account (if applicable)</li>
+            <li>A clear request to delete your account and personal data</li>
+        </ul>
+        
+        <p>We may request additional information to verify your identity before processing your request.</p>
+        
+        <h2>Processing Time</h2>
+        
+        <p>We process valid data deletion requests without undue delay and in accordance with applicable data protection laws.</p>
+        
+        <h2>Questions or Assistance</h2>
+        
+        <p>If you have questions about data deletion or encounter any issues, please contact us:</p>
+        <p><strong>📧 <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a></strong></p>
         
         <a href="index.html" class="back-link">← Back to Home</a>
         

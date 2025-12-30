@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Use - AfterVeil | PiazSoftware</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,82 +17,301 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.8;
+            line-height: 1.7;
             color: #2d3748;
-            background: #f7fafc;
-            padding: 20px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #3b82f6 50%, #60a5fa 75%, #93c5fd 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 60px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            padding: 70px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%);
         }
         
         .header {
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 35px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
         }
         
         h1 {
-            font-size: 2.5em;
-            color: #1a202c;
-            margin-bottom: 10px;
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
         }
         
         .last-updated {
-            color: #718096;
+            color: #64748b;
+            font-size: 1em;
             font-style: italic;
+            margin-top: 10px;
         }
         
         h2 {
-            font-size: 1.8em;
-            color: #2d3748;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 4px solid #667eea;
+            font-size: 1.95em;
+            color: #1e293b;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 5px solid;
+            border-image: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%) 1;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            scroll-margin-top: 20px;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            color: #334155;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-weight: 600;
         }
         
         p {
-            margin-bottom: 20px;
-            color: #4a5568;
+            margin-bottom: 22px;
+            color: #475569;
+            font-size: 1.05em;
+            line-height: 1.75;
+        }
+        
+        strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-left: 5px solid #3b82f6;
+            padding: 28px 32px;
+            margin: 35px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .info-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.15);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 28px 32px;
+            margin: 35px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .warning-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.15);
+        }
+        
+        .bullet-list {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            list-style: none;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 14px;
+            color: #475569;
+            font-size: 1.05em;
+            line-height: 1.7;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .bullet-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .toc {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-left: 5px solid #3b82f6;
+            padding: 28px 32px;
+            margin: 35px 0;
+            border-radius: 12px;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .toc li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .toc a {
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: block;
+        }
+        
+        .toc a:hover {
+            color: #3b82f6;
+            text-decoration: underline;
         }
         
         .back-link {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 50px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
         }
         
         .back-link:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.5);
+        }
+        
+        .back-link:active {
+            transform: translateY(-1px);
         }
         
         .footer {
-            margin-top: 60px;
-            padding-top: 30px;
+            margin-top: 70px;
+            padding-top: 35px;
             border-top: 2px solid #e2e8f0;
             text-align: center;
-            color: #718096;
+            color: #94a3b8;
+            font-size: 0.95em;
         }
         
-        @media (max-width: 600px) {
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
+        
+        a[href^="mailto:"] {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        a[href^="mailto:"]:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .container {
+                padding: 40px 30px;
+                border-radius: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+                padding-left: 15px;
+                margin-top: 40px;
+            }
+            
+            p {
+                font-size: 1em;
+            }
+            
+            .info-box,
+            .warning-box,
+            .toc {
+                padding: 20px 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
             .container {
                 padding: 30px 20px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 1.9em;
             }
             
             h2 {
@@ -100,41 +323,238 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Terms of Use</h1>
-            <p class="last-updated">Last Updated: December 24, 2025</p>
+            <h1>TERMS OF USE</h1>
+            <p class="last-updated">Last updated: January 1st, 2026</p>
         </div>
         
-        <p>Welcome to <strong>AfterVeil</strong>, a detective game developed by <strong>PiazSoftware</strong>. By accessing or using our game, you agree to be bound by these Terms of Use.</p>
+        <h2 id="agreement">AGREEMENT TO OUR LEGAL TERMS</h2>
         
-        <h2>1. Acceptance of Terms</h2>
-        <p>[Temporary placeholder text - Replace this section with details about accepting the terms, who can use the game, and what constitutes acceptance.]</p>
+        <p>We are <strong>PIAZ Software ApS</strong> ("Company," "we," "us," "our").</p>
+        <p>We operate the mobile application AfterVeil (the "App"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").</p>
+        <p>You can contact us by email at <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a>.</p>
+        <p>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and PIAZ Software ApS, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</p>
+        <p>Supplemental terms and conditions or documents that may be posted on the Services from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Legal Terms from time to time. We will alert you about any changes by updating the "Last updated" date of these Legal Terms, and you waive any right to receive specific notice of each such change. It is your responsibility to periodically review these Legal Terms to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Legal Terms by your continued use of the Services after the date such revised Legal Terms are posted.</p>
+        <p>The Services are intended for users who are at least 13 years of age. All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Services. If you are a minor, you must have your parent or guardian read and agree to these Legal Terms prior to you using the Services.</p>
+        <p>We recommend that you print a copy of these Legal Terms for your records.</p>
         
-        <h2>2. License to Use</h2>
-        <p>[Temporary placeholder text - Replace this section with information about the license granted to users, permitted uses, and any restrictions on use.]</p>
+        <h2 id="table-of-contents">TABLE OF CONTENTS</h2>
         
-        <h2>3. User Conduct</h2>
-        <p>[Temporary placeholder text - Replace this section with rules about acceptable behavior, prohibited activities, and consequences for violations.]</p>
+        <div class="toc">
+            <ul>
+                <li><a href="#our-services">OUR SERVICES</a></li>
+                <li><a href="#intellectual-property-rights">INTELLECTUAL PROPERTY RIGHTS</a></li>
+                <li><a href="#user-representations">USER REPRESENTATIONS</a></li>
+                <li><a href="#user-registration">USER REGISTRATION</a></li>
+                <li><a href="#purchases-and-payment">PURCHASES AND PAYMENT</a></li>
+                <li><a href="#refunds-policy">REFUNDS POLICY</a></li>
+                <li><a href="#prohibited-activities">PROHIBITED ACTIVITIES</a></li>
+                <li><a href="#user-generated-contributions">USER GENERATED CONTRIBUTIONS</a></li>
+                <li><a href="#contribution-license">CONTRIBUTION LICENSE</a></li>
+                <li><a href="#mobile-application-license">MOBILE APPLICATION LICENSE</a></li>
+                <li><a href="#social-media">SOCIAL MEDIA</a></li>
+                <li><a href="#third-party-websites">THIRD-PARTY WEBSITES AND CONTENT</a></li>
+                <li><a href="#services-management">SERVICES MANAGEMENT</a></li>
+                <li><a href="#privacy-policy">PRIVACY POLICY</a></li>
+                <li><a href="#copyright-infringements">COPYRIGHT INFRINGEMENTS</a></li>
+                <li><a href="#term-and-termination">TERM AND TERMINATION</a></li>
+                <li><a href="#modifications-and-interruptions">MODIFICATIONS AND INTERRUPTIONS</a></li>
+                <li><a href="#governing-law">GOVERNING LAW</a></li>
+                <li><a href="#dispute-resolution">DISPUTE RESOLUTION</a></li>
+                <li><a href="#corrections">CORRECTIONS</a></li>
+                <li><a href="#disclaimer">DISCLAIMER</a></li>
+                <li><a href="#limitations-of-liability">LIMITATIONS OF LIABILITY</a></li>
+                <li><a href="#indemnification">INDEMNIFICATION</a></li>
+                <li><a href="#user-data">USER DATA</a></li>
+                <li><a href="#electronic-communications">ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</a></li>
+                <li><a href="#california-users">CALIFORNIA USERS AND RESIDENTS</a></li>
+                <li><a href="#miscellaneous">MISCELLANEOUS</a></li>
+                <li><a href="#contact-us">CONTACT US</a></li>
+            </ul>
+        </div>
         
-        <h2>4. Intellectual Property</h2>
-        <p>[Temporary placeholder text - Replace this section with information about ownership of game content, trademarks, copyrights, and user-generated content.]</p>
+        <h2 id="our-services">1. OUR SERVICES</h2>
+        <p>The Services are an interactive entertainment experience and are not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+        <p>The Services are not tailored to comply with industry-specific regulations (such as Health Insurance Portability and Accountability Act (HIPAA), Federal Information Security Management Act (FISMA), etc.), so if your interactions would be subjected to such laws, you may not use the Services. You may not use the Services in a way that would violate the Gramm-Leach-Bliley Act (GLBA).</p>
         
-        <h2>5. Purchases and Payments</h2>
-        <p>[Temporary placeholder text - Replace this section with details about in-game purchases, payment terms, refund policies, etc.]</p>
+        <h2 id="intellectual-property-rights">2. INTELLECTUAL PROPERTY RIGHTS</h2>
         
-        <h2>6. Account Termination</h2>
-        <p>[Temporary placeholder text - Replace this section with information about account suspension or termination, reasons for termination, and user rights.]</p>
+        <h3>Our intellectual property</h3>
+        <p>We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, designs, audio, video, text, photographs, and graphics in the Services (collectively, the "Content"), as well as the trademarks, service marks, and logos contained therein (the "Marks").</p>
+        <p>Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties in the United States and around the world.</p>
+        <p>The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use only.</p>
         
-        <h2>7. Disclaimers and Limitations of Liability</h2>
-        <p>[Temporary placeholder text - Replace this section with legal disclaimers, warranty information, and limitations of liability.]</p>
+        <h3>Your use of our Services</h3>
+        <p>Subject to your compliance with these Legal Terms, including the "PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive, non-transferable, revocable license to:</p>
+        <ul class="bullet-list">
+            <li>access the Services; and</li>
+            <li>download or install the App on devices owned or controlled by you, solely for your personal, non-commercial use.</li>
+        </ul>
+        <p>Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p>
+        <p>We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.</p>
+        <p>Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.</p>
         
-        <h2>8. Changes to Terms</h2>
-        <p>[Temporary placeholder text - Replace this section with information about how and when these terms may be updated.]</p>
+        <h3>Your submissions</h3>
+        <p>By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree that we may use such Submissions for any lawful purpose without compensation to you. To the extent permitted by law, you agree that such Submissions are non-confidential.</p>
         
-        <h2>9. Governing Law</h2>
-        <p>[Temporary placeholder text - Replace this section with information about which jurisdiction's laws apply and dispute resolution procedures.]</p>
+        <h2 id="user-representations">3. USER REPRESENTATIONS</h2>
+        <p>By using the Services, you represent and warrant that:</p>
+        <ul class="bullet-list">
+            <li>all information you submit (if any) will be true, accurate, current, and complete;</li>
+            <li>you will maintain the accuracy of such information and promptly update it as necessary;</li>
+            <li>you have the legal capacity and you agree to comply with these Legal Terms;</li>
+            <li>you are not under the age of 13;</li>
+            <li>if you are a minor in your jurisdiction, you have received parental permission to use the Services;</li>
+            <li>you will not access the Services through automated or non-human means, whether through a bot, script, or otherwise;</li>
+            <li>you will not use the Services for any illegal or unauthorized purpose; and</li>
+            <li>your use of the Services will not violate any applicable law or regulation.</li>
+        </ul>
+        <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Services (or any portion thereof).</p>
         
-        <h2>10. Contact Information</h2>
-        <p>[Temporary placeholder text - Replace this section with contact details for legal inquiries and support.]</p>
+        <h2 id="user-registration">4. USER REGISTRATION</h2>
+        <p>You may be required to register to use certain features of the Services. You may also be able to use the Services as a guest. Guest gameplay data may not be transferable between devices and may be less secure than data associated with a registered account.</p>
+        <p>If you register, you agree to keep your account credentials confidential and will be responsible for all use of your account. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p>
+        
+        <h2 id="purchases-and-payment">5. PURCHASES AND PAYMENT</h2>
+        <p>The Services may offer in-app purchases or subscriptions. Purchases are processed through the Apple App Store and/or Google Play (each an "App Distributor"), and your purchase is subject to the App Distributor's terms and conditions.</p>
+        <p>We do not collect or store complete payment card details. The App Distributor may provide us limited information related to a transaction (such as purchase status, product ID, and transaction identifiers) to deliver the purchase and operate the Services.</p>
+        <p>Prices may vary by region and may be charged in your local currency as determined by the App Distributor. Taxes may be applied as required by the App Distributor and/or applicable law.</p>
+        
+        <h2 id="refunds-policy">6. REFUNDS POLICY</h2>
+        <p>Refunds and cancellations for purchases made through an App Distributor are handled by the App Distributor in accordance with its refund policies and applicable law. Please review the App Distributor's terms for information about refunds, cancellations, and billing disputes.</p>
+        
+        <h2 id="prohibited-activities">7. PROHIBITED ACTIVITIES</h2>
+        <p>You may not access or use the Services for any purpose other than that for which we make the Services available. The Services may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
+        <p>As a user of the Services, you agree not to:</p>
+        <ul class="bullet-list">
+            <li>systematically retrieve data or content from the Services to create or compile a collection, compilation, database, or directory without written permission from us;</li>
+            <li>trick, defraud, or mislead us or other users, including attempts to learn sensitive account information;</li>
+            <li>circumvent, disable, or interfere with security-related features of the Services;</li>
+            <li>use the Services in a manner inconsistent with any applicable laws or regulations;</li>
+            <li>upload or transmit viruses or other harmful code;</li>
+            <li>engage in any automated use of the system (including scraping or data mining);</li>
+            <li>attempt to reverse engineer, decompile, or disassemble the App except as permitted by law;</li>
+            <li>exploit bugs, cheats, or unintended features to gain unfair advantages;</li>
+            <li>harass, abuse, intimidate, or threaten any person;</li>
+            <li>submit unlawful, harmful, or infringing content;</li>
+            <li>sell or otherwise transfer your account (if applicable).</li>
+        </ul>
+        <p>Any use of the Services in violation of the foregoing violates these Legal Terms and may result in suspension or termination.</p>
+        
+        <h2 id="user-generated-contributions">8. USER GENERATED CONTRIBUTIONS</h2>
+        <p>The Services may allow you to input content such as in-game messages, notes, case-related information, and feedback ("Contributions"). The App is primarily an interactive game experience; Contributions are not intended to be publicly posted or shared with other users through the Services.</p>
+        <p>You are responsible for your Contributions and represent and warrant that your Contributions:</p>
+        <ul class="bullet-list">
+            <li>do not violate any applicable law;</li>
+            <li>do not infringe any third party rights (including intellectual property or privacy rights);</li>
+            <li>are not harmful, abusive, hateful, or otherwise objectionable;</li>
+            <li>do not include content that is illegal or promotes illegal activity.</li>
+        </ul>
+        <p>We may remove or restrict Contributions if we believe they violate these Legal Terms or may harm the Services, users, or third parties.</p>
+        
+        <h2 id="contribution-license">9. CONTRIBUTION LICENSE</h2>
+        <p>By submitting Contributions through the Services, you grant us a limited, non-exclusive, worldwide, royalty-free license to host, store, reproduce, process, and display your Contributions solely to:</p>
+        <ul class="bullet-list">
+            <li>operate and provide the Services (including saving progress and case state);</li>
+            <li>enable gameplay features and AI-powered interactions;</li>
+            <li>provide customer support;</li>
+            <li>maintain safety and security, prevent abuse, and enforce these Legal Terms; and</li>
+            <li>improve and develop the Services.</li>
+        </ul>
+        <p>This license ends when your Contributions are deleted from our systems, except to the extent we are required or permitted to retain certain information for legal, security, or backup purposes consistent with our Privacy Notice.</p>
+        <p>You retain ownership of your Contributions.</p>
+        
+        <h2 id="mobile-application-license">10. MOBILE APPLICATION LICENSE</h2>
+        
+        <h3>Use License</h3>
+        <p>If you access the Services via the App, then we grant you a revocable, non-exclusive, non-transferable, limited right to install and use the App on devices owned or controlled by you, and to access and use the App on such devices strictly in accordance with these Legal Terms.</p>
+        <p>You shall not:</p>
+        <ul class="bullet-list">
+            <li>decompile, reverse engineer, disassemble, attempt to derive the source code of, or decrypt the App, except as permitted by applicable law;</li>
+            <li>make any modification, adaptation, improvement, enhancement, translation, or derivative work from the App;</li>
+            <li>remove or obscure any proprietary notice;</li>
+            <li>use the App for any revenue-generating endeavor or commercial enterprise;</li>
+            <li>make the App available over a network permitting use by multiple users unless permitted;</li>
+            <li>use the App to create a competing product or service.</li>
+        </ul>
+        
+        <h3>Apple and Android Devices</h3>
+        <p>The following terms apply when you use the App obtained from an App Distributor:</p>
+        <ul class="bullet-list">
+            <li>the license granted to you is limited to a non-transferable license to use the App on a device that utilizes Apple iOS or Android operating systems, as applicable, and in accordance with the App Distributor's usage rules;</li>
+            <li>we are responsible for providing any maintenance and support services for the App as required by law;</li>
+            <li>in the event the App fails to conform to any applicable warranty, you may notify the App Distributor, and the App Distributor may refund the purchase price (if any) in accordance with its policies;</li>
+            <li>you must comply with applicable third-party terms when using the App; and</li>
+            <li>the App Distributors are third-party beneficiaries of this section and may enforce it as a third-party beneficiary.</li>
+        </ul>
+        
+        <h2 id="social-media">11. SOCIAL MEDIA</h2>
+        <p>As part of the Services, you may be able to register or log in using third-party accounts such as Google or Facebook ("Third-Party Accounts"). If you choose to do so, we receive only the information necessary to authenticate you and create your account (such as your email address, display name, and a provider-specific identifier), as described in our Privacy Notice.</p>
+        <p>Your relationship with third-party service providers is governed solely by your agreement(s) with such providers. We do not control and are not responsible for their practices.</p>
+        
+        <h2 id="third-party-websites">12. THIRD-PARTY WEBSITES AND CONTENT</h2>
+        <p>The Services may contain links to third-party websites or services ("Third-Party Websites") and third-party content ("Third-Party Content"). We do not investigate, monitor, or check Third-Party Websites or Third-Party Content for accuracy or completeness, and we are not responsible for them. Accessing Third-Party Websites is at your own risk.</p>
+        
+        <h2 id="services-management">13. SERVICES MANAGEMENT</h2>
+        <p>We reserve the right, but not the obligation, to:</p>
+        <ul class="bullet-list">
+            <li>monitor the Services for violations of these Legal Terms;</li>
+            <li>take appropriate action against anyone who violates these Legal Terms or applicable law;</li>
+            <li>restrict or limit access to the Services to protect our rights and property and ensure proper operation;</li>
+            <li>manage the Services in a manner designed to protect the Services and users.</li>
+        </ul>
+        
+        <h2 id="privacy-policy">14. PRIVACY POLICY</h2>
+        <p>We care about data privacy and security. Please review our Privacy Notice: <a href="privacy-policy.html">Privacy Policy</a>. By using the Services, you agree to be bound by our Privacy Notice, which is incorporated into these Legal Terms.</p>
+        
+        <h2 id="copyright-infringements">15. COPYRIGHT INFRINGEMENTS</h2>
+        <p>We respect the intellectual property rights of others. If you believe any material available on or through the Services infringes a copyright you own or control, please notify us at <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a> with sufficient detail to evaluate your claim.</p>
+        
+        <h2 id="term-and-termination">16. TERM AND TERMINATION</h2>
+        <p>These Legal Terms shall remain in full force and effect while you use the Services. We reserve the right to deny access to and use of the Services, or to terminate or suspend your access, in our sole discretion, including for violation of these Legal Terms or applicable law.</p>
+        <p>You may stop using the Services at any time. If you delete your account (where available), access may end and certain data may be deleted as described in our Privacy Notice.</p>
+        
+        <h2 id="modifications-and-interruptions">17. MODIFICATIONS AND INTERRUPTIONS</h2>
+        <p>We reserve the right to change, modify, or remove the Services at any time for any reason in our sole discretion. We cannot guarantee the Services will be available at all times. We may experience interruptions, delays, or errors due to maintenance or technical issues.</p>
+        
+        <h2 id="governing-law">18. GOVERNING LAW</h2>
+        <p>These Legal Terms are governed by and interpreted following the laws of Denmark, and the use of the United Nations Convention of Contracts for the International Sale of Goods is expressly excluded.</p>
+        <p>If you are a consumer habitually resident in the EU, you additionally possess the protection provided to you by mandatory provisions of the law in your country of residence.</p>
+        
+        <h2 id="dispute-resolution">19. DISPUTE RESOLUTION</h2>
+        <p>To expedite resolution and control costs, you and we agree to first attempt to resolve any dispute informally by contacting us at <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a>.</p>
+        <p>If we are unable to resolve a dispute informally, disputes shall be submitted to the competent courts in Copenhagen, Denmark, subject to any mandatory consumer protections in your country of residence.</p>
+        
+        <h2 id="corrections">20. CORRECTIONS</h2>
+        <p>There may be information on the Services that contains typographical errors, inaccuracies, or omissions. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update information at any time, without prior notice.</p>
+        
+        <h2 id="disclaimer">21. DISCLAIMER</h2>
+        <p>THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        <p>AI-powered features are provided for entertainment purposes. We do not warrant that AI-generated outputs will be accurate, complete, or suitable for any particular purpose.</p>
+        
+        <h2 id="limitations-of-liability">22. LIMITATIONS OF LIABILITY</h2>
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+        <p>CERTAIN LAWS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU.</p>
+        
+        <h2 id="indemnification">23. INDEMNIFICATION</h2>
+        <p>You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, made by any third party due to or arising out of: (1) your Contributions; (2) use of the Services; (3) breach of these Legal Terms; (4) your violation of the rights of a third party; or (5) your violation of any applicable law.</p>
+        
+        <h2 id="user-data">24. USER DATA</h2>
+        <p>We will maintain certain data that you transmit to the Services for the purpose of operating the Services, as well as data relating to your use of the Services. Although we perform routine backups, you are responsible for maintaining your own copies of important data. We are not liable for any loss or corruption of such data, to the fullest extent permitted by law.</p>
+        
+        <h2 id="electronic-communications">25. ELECTRONIC COMMUNICATIONS, TRANSACTIONS, AND SIGNATURES</h2>
+        <p>You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically satisfy any legal requirement that such communication be in writing.</p>
+        
+        <h2 id="california-users">26. CALIFORNIA USERS AND RESIDENTS</h2>
+        <p>If any complaint with us is not satisfactorily resolved, you can contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs at its published contact points.</p>
+        
+        <h2 id="miscellaneous">27. MISCELLANEOUS</h2>
+        <p>These Legal Terms and any policies or operating rules posted by us constitute the entire agreement between you and us. If any provision is determined to be unlawful, void, or unenforceable, that provision is deemed severable and does not affect the validity and enforceability of the remaining provisions.</p>
+        <p>We may assign any or all of our rights and obligations to others at any time. We shall not be responsible for any failure to perform due to causes beyond our reasonable control.</p>
+        
+        <h2 id="contact-us">28. CONTACT US</h2>
+        <p>In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p>
+        <p><strong>PIAZ Software ApS</strong><br>
+        Email: <a href="mailto:piazsoftware@gmail.com">piazsoftware@gmail.com</a></p>
         
         <a href="index.html" class="back-link">← Back to Home</a>
         
@@ -144,4 +564,3 @@
     </div>
 </body>
 </html>
-
